@@ -1,0 +1,19 @@
+# Build context filter for `docker build -f mayhem/Dockerfile .`
+#
+# BuildKit gives this per-Dockerfile ignore file precedence over any context-root
+# .dockerignore, so it is the EFFECTIVE one for the commit image.
+#
+# The commit image is a DEV image: it must keep the full repository INCLUDING .git
+# (the grader and the PATCH tier read the history). Only local build output and
+# editor/OS noise is dropped.
+
+# Build trees created by mayhem/build.sh (and any stray local CMake tree).
+mayhem-build-fuzz/
+mayhem-build-test/
+cmake-build-*/
+
+# Editor / OS noise
+.DS_Store
+*.swp
+*~
+**/__pycache__/

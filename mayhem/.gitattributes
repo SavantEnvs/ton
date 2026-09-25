@@ -1,0 +1,2 @@
+# Fuzzing seed corpora are raw bytes: never touch their line endings.
+*.boc binary

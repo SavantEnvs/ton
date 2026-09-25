@@ -1,0 +1,11 @@
+project: savantenvs/ton
+target: boc_fuzzer
+# Two sources, in this order: the server-accumulated corpus (keyed on the literal
+# $MAYHEM_TARGET) and this target's committed starter seeds.
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/boc_fuzzer/testsuite
+cmds:
+  - cmd: /mayhem/boc_fuzzer
+    libfuzzer: true
+    timeout: 30
